@@ -29,7 +29,10 @@ public class ZuulPreFilter extends ZuulFilter{
 		RequestContext context = RequestContext.getCurrentContext();
 		HttpServletRequest request = context.getRequest();
 		String authHeader = request.getHeader("authorization");
-		String jwtToken = authHeader.substring(7);
+		String jwtToken = "";
+		if(authHeader.length()>7) {
+			jwtToken=authHeader.substring(7);
+		}
 		if(authHeader == null || authHeader.trim().equals("") || !authHeader.startsWith("Bearer")
 				|| jwtToken.trim().equals("")) {
 			logger.error("Zuul filter: Invalid token");
