@@ -15,12 +15,13 @@ public class ZuulPreFilter extends ZuulFilter{
 	private Logger logger = LoggerFactory.getLogger(ZuulPreFilter.class);
 	@Override
 	public boolean shouldFilter() {
+		boolean isFilter = true;
 		RequestContext context = RequestContext.getCurrentContext();
 		HttpServletRequest request = context.getRequest();
 		if(request.getRequestURL().toString().equals("http://localhost:8084/login-service/api/login/authenticate")){
-			return false;
+			isFilter = false;
 		}
-		return true;
+		return isFilter;
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class ZuulPreFilter extends ZuulFilter{
 		HttpServletRequest request = context.getRequest();
 		String authHeader = request.getHeader("authorization");
 		String jwtToken = "";
-		if(authHeader.length()>7) {
+		if(authHeader != null && authHeader.length()>7) {
 			jwtToken=authHeader.substring(7);
 		}
 		if(authHeader == null || authHeader.trim().equals("") || !authHeader.startsWith("Bearer")
