@@ -9,11 +9,11 @@ spring:
     gateway:
       routes:
       - id: LoansearchModule
-        uri: http://localhost:8082/
+        uri: lb://loan-search-service
         predicates:
-        - Path=/loan/**
+        - Path=/loan/data/
         filters:
-        - names: Hystrix
+        - name: Hystrix
           args:
             name: fallbackCommand
             fallbackUri: forward:/fallback/message

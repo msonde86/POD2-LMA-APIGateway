@@ -10,6 +10,6 @@ public class FallbackController {
 
 	@GetMapping("/message")
 	public String test() {
-		return "Hello JavaInUse Called in Fallback Service";
+		return "Hello LoanSearch service is down";
 	}
 }
