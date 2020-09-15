@@ -1,3 +1,4 @@
+
 server:
   port: 8084
 
@@ -9,9 +10,9 @@ spring:
     gateway:
       routes:
       - id: LoansearchModule
-        uri: lb://loan-search-service
+        uri: lb://LOAN-SEARCH-SERVICE
         predicates:
-        - Path=/loan/data/
+        - Path=/loansearch/**
         filters:
         - name: Hystrix
           args:

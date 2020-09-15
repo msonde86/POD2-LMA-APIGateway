@@ -12,9 +12,9 @@ public class BeanConfig {
 	@Bean
 	public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route(r -> r.path("/loan/data/")
+				.route(r -> r.path("/loansearch/**")
 						.filters(f -> f.hystrix(h -> h.setName("Hystrix").setFallbackUri("forward:/fallback/message")))
-						.uri("lb://loan-search-service").id("LoansearchModule"))
+						.uri("lb://LOAN-SEARCH-SERVICE").id("LoansearchModule"))
 
 //				.route(r -> r.path("/consumer/**")
 //						.filters(f -> f.hystrix(h -> h.setName("Hystrix").setFallbackUri("forward:/fallback/message")))
