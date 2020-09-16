@@ -1,20 +1,29 @@
-
 server:
   port: 8084
-
+   
 spring:
   application:
     name: gateway-service
- 
+      
   cloud:
     gateway:
       routes:
       - id: LoansearchModule
         uri: lb://LOAN-SEARCH-SERVICE
         predicates:
-        - Path=/loansearch/**
+        - Path=/loan/data/
         filters:
         - name: Hystrix
           args:
-            name: fallbackCommand
-            fallbackUri: forward:/fallback/message
+            name: hystrix
+            fallbackUri: forward:/fallback/loan/data
+            
+      - id: LoginServiceModule
+        uri: lb://LOGIN-SERVICE
+        predicates:
+        - Path=/api/login/**
+        filters:
+        - name: Hystrix
+          args:
+            name: hystrix
+            fallbackUri: forward:/fallback/api/login     

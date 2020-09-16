@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/fallback")
 public class FallbackController {
 
-	@GetMapping("/message")
+	@GetMapping("/authenticate")
 	public String test() {
-		return "Hello LoanSearch service is down";
+		return "Hello Login service is down";
+	}
+
+	@GetMapping("/loan/data")
+	public String secondServiceFallback() {
+		return "Login service not loaded Please try after some time.";
 	}
 }
