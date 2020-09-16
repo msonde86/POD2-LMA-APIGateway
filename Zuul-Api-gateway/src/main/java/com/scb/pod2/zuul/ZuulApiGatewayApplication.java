@@ -8,11 +8,14 @@ import org.springframework.context.annotation.Bean;
 
 import com.scb.pod2.zuul.filter.ZuulPreFilter;
 
+import lombok.Generated;
+
 @SpringBootApplication
 @EnableZuulProxy
 @EnableCircuitBreaker
 public class ZuulApiGatewayApplication {
 
+	@Generated
 	public static void main(String[] args) {
 		SpringApplication.run(ZuulApiGatewayApplication.class, args);
 	}
