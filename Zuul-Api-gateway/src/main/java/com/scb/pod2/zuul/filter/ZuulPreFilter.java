@@ -27,6 +27,7 @@ public class ZuulPreFilter extends ZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
+
 		logger.info("Executing zuul pre filter");
 		RequestContext context = RequestContext.getCurrentContext();
 		HttpServletRequest request = context.getRequest();
