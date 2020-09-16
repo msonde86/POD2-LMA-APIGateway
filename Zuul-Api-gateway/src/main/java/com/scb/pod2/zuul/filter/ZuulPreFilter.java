@@ -45,7 +45,6 @@ public class ZuulPreFilter extends ZuulFilter {
 		}
 
 		return null;
-
 	}
 
 	@Override
