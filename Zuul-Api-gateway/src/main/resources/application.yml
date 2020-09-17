@@ -17,7 +17,7 @@ spring:
       - id: LoansearchModule
         uri: lb://LOAN-SEARCH-SERVICE
         predicates:
-        - Path=/loan/data
+        - Path=/loan/data/**
         filters:
         - name: Hystrix
           args:
