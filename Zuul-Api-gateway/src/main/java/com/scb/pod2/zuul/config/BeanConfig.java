@@ -11,7 +11,7 @@ public class BeanConfig {
 
 	@Bean
 	public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
-		return builder.routes().route(r -> r.path("/loan/data/")
+		return builder.routes().route(r -> r.path("/loan/data")
 				.filters(f -> f.hystrix(h -> h.setName("Hystrix").setFallbackUri("forward:/fallback/loan/data")))
 				.uri("lb://LOAN-SEARCH-SERVICE").id("LoansearchModule"))
 
