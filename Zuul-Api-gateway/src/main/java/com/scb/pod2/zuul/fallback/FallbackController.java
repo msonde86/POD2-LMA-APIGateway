@@ -14,7 +14,7 @@ public class FallbackController {
 	}
 
 	@GetMapping("/loginSearch")
-	public String LoanSearch() {
+	public String LoginSearch() {
 		return "Hello Login service is down";
 	}
 	
