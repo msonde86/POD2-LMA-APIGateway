@@ -22,14 +22,4 @@ spring:
         - name: Hystrix
           args:
             name: fallbackCommand
-            fallbackUri: forward:/fallback/loan/data
-            
-      - id: LoginServiceModule
-        uri: lb://LOGIN-SERVICE
-        predicates:
-        - Path=/api/login/**
-        filters:
-        - name: Hystrix
-          args:
-            name: fallbackCommand
-            fallbackUri: forward:/fallback/api/login
+            fallbackUri: forward:/fallback/message
