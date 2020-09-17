@@ -1,6 +1,5 @@
 server:
   port: 8084
-
  
 eureka:
   client:
@@ -10,11 +9,10 @@ eureka:
 spring:
   application:
     name: gateway-service
-      
   cloud:
     gateway:
       routes:
-      - id: LoansearchModule
+      - id: loanSearchModule
         uri: lb://LOAN-SEARCH-SERVICE
         predicates:
         - Path=/loan/data/**
@@ -23,3 +21,12 @@ spring:
           args:
             name: fallbackCommand
             fallbackUri: forward:/fallback/message
+      - id: loginModule
+        uri: lb://LOGIN-SERVICE
+        predicates:
+        - Path=/api/login/**
+        filters:
+        - name: Hystrix
+          args:
+            name: fallbackCommand
+            fallbackUri: forward:/fallback/loginSearch

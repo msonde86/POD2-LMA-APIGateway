@@ -10,8 +10,12 @@ public class FallbackController {
 
 	@GetMapping("/message")
 	public String test() {
-		return "Hello Login service is down";
+		return "Hello Loan search service is down";
 	}
 
+	@GetMapping("/loginSearch")
+	public String LoanSearch() {
+		return "Hello Login service is down";
+	}
 	
 }
