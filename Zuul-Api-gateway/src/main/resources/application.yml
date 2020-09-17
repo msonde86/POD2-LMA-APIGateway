@@ -32,4 +32,4 @@ spring:
         - name: Hystrix
           args:
             name: fallbackCommand
-            fallbackUri: forward:/fallback/api/logi
+            fallbackUri: forward:/fallback/api/login
