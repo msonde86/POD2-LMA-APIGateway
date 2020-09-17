@@ -2,17 +2,14 @@ package com.scb.pod2.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.Bean;
-
-import com.scb.pod2.zuul.filter.ZuulPreFilter;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 import lombok.Generated;
 
 @SpringBootApplication
-@EnableZuulProxy
-@EnableCircuitBreaker
+@EnableHystrix
+@EnableEurekaClient
 public class ZuulApiGatewayApplication {
 
 	@Generated
@@ -20,9 +17,9 @@ public class ZuulApiGatewayApplication {
 		SpringApplication.run(ZuulApiGatewayApplication.class, args);
 	}
 
-	@Bean
- public ZuulPreFilter preFilter() {
-		return new ZuulPreFilter();
-	}
+//	@Bean
+// public ZuulPreFilter preFilter() {
+//		return new ZuulPreFilter();
+//	}
 
 }

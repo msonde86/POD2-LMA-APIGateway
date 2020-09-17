@@ -1,6 +1,12 @@
 server:
   port: 8084
-   
+
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
 spring:
   application:
     name: gateway-service
@@ -11,11 +17,11 @@ spring:
       - id: LoansearchModule
         uri: lb://LOAN-SEARCH-SERVICE
         predicates:
-        - Path=/loan/data/
+        - Path=/loan/data
         filters:
         - name: Hystrix
           args:
-            name: hystrix
+            name: fallbackCommand
             fallbackUri: forward:/fallback/loan/data
             
       - id: LoginServiceModule
@@ -25,5 +31,5 @@ spring:
         filters:
         - name: Hystrix
           args:
-            name: hystrix
-            fallbackUri: forward:/fallback/api/login     
+            name: fallbackCommand
+            fallbackUri: forward:/fallback/api/logi
