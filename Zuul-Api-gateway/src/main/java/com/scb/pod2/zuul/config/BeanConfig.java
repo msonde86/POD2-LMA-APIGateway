@@ -21,9 +21,9 @@ public class BeanConfig {
 				.build();
 	}
 
-	@Bean
-	public ServerCodecConfigurer serverCodecConfigurer() {
-		return ServerCodecConfigurer.create();
-	}
+//	@Bean
+//	public ServerCodecConfigurer serverCodecConfigurer() {
+//		return ServerCodecConfigurer.create();
+//	}
 
 }
