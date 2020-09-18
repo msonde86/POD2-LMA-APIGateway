@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/*
+ * If predicates is not matched, then fallbackURI route it to the specific fall back endpoint 
+ * based on the configuration in YML properties and Bean config class file.
+ */
+
 @RestController
 @RequestMapping("/fallback")
 public class FallbackController {

@@ -5,6 +5,16 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/*
+ * Here we use RouteLocator Builder class in order to route the service to the appropriate Microservices
+ * Route – the primary API of the gateway. It is defined by a given identification (ID), a destination (URI) and set of predicates and filters
+ * Predicate – a Java 8's Predicate – which is used for matching HTTP requests using headers, methods or parameters
+ * Filter – a standard Spring's WebFilter 
+ *  
+ * 
+ */
+
+
 @Configuration
 public class BeanConfig {
 
