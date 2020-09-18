@@ -18,6 +18,7 @@ public class FallbackController {
 	@GetMapping("/loginService")
 	public ResponseEntity<String> loginsearchFallback() {
 		return ResponseEntity.status(HttpStatus.GONE).body("Login service is temporarily unavailable");
+
 	}
 
 }
