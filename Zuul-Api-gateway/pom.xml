@@ -19,6 +19,10 @@
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<sonar.exclusions>
+			com/scb/pod2/zuul/*Application.java,
+			com/scb/pod2/zuul/config/*.java
+		</sonar.exclusions>
 	</properties>
 
 	<dependencies>
@@ -26,9 +30,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-web</artifactId> 
-			</dependency> <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-netflix-zuul</artifactId> 
-			</dependency> -->
+		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
@@ -113,6 +115,7 @@
 						<configuration>
 							<excludes>
 								<exclude>com/scb/pod2/zuul/*Application.class</exclude>
+								<exclude>com/scb/pod2/zuul/config/BeanConfig.class</exclude>
 							</excludes>
 							<rules>
 								<rule>

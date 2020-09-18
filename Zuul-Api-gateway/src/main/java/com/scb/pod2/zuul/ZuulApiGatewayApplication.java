@@ -17,9 +17,4 @@ public class ZuulApiGatewayApplication {
 		SpringApplication.run(ZuulApiGatewayApplication.class, args);
 	}
 
-//	@Bean
-// public ZuulPreFilter preFilter() {
-//		return new ZuulPreFilter();
-//	}
-
 }
